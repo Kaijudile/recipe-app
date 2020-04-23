@@ -1,8 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, Image, TouchableOpacity, Alert } from 'react-native';
+import Navigator from '../routes/homeStack';
 
 export default class frontpage extends React.Component{
 
+  _toLogin() {
+    this.setState
+    this.props.navigation.navigate('Login')
+  }
+  
   signupPressed = () => {
     Alert.alert("Completed Sign Up")
   }
@@ -12,23 +18,23 @@ export default class frontpage extends React.Component{
 
      
       <ImageBackground
-        source={require('./assets/background2.jpg')}
+        source={require('../assets/background2.jpg')}
         style={styles.background}
       >
         <View>
         
           <Image
-            source={require('./assets/logo2.png')}
+            source={require('../assets/logo2.png')}
             style={styles.logo}
             resizeMode="contain"
           />
-          <Text style={styles.text}>Indulge in Delight</Text>
+          
         </View>
         <TouchableOpacity onPress={this.signupPressed}>
           <Text style={styles.signup}>Sign up</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={this.signupPressed}>
+        <TouchableOpacity onPress={this._toLogin.bind(this)}>
           <Text style={styles.signin}>Log In</Text>
         </TouchableOpacity>
       </ImageBackground>
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
     marginLeft: '15%',
     fontWeight: 'bold',
     fontSize: 25,
-    //fontFamily: 'monospace' //'MarckScript-Regular'
+    fontFamily: 'monospace' //'MarckScript-Regular'
   },
   signup: {
     backgroundColor: 'white',
